@@ -1,4 +1,5 @@
-# Fluidity & Wordpress ♡  generator-wp-fluidity
+# Fluidity + Wordpress = ♡ 
+## generator-wp-fluidity
 
 A [Yeoman](http://yeoman.io) generator to kickstart your WordPress theme development with an awesome grunt based workflow that utilizes Stylus w/Fluidity, JadePHP, and Coffeescript.
 
