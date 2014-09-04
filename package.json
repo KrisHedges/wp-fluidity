@@ -1,0 +1,42 @@
+{
+  "name": "generator-wp-fluidity",
+  "version": "0.0.1",
+  "description": "A WordPress theme YeoMan generator, to kickstart WordPress theme development with yo & grunt. Utilizing Stylus w/Fluidity, JadePHP, and Coffeescript.",
+  "keywords": [
+    "yeoman-generator", "wp-theme", "wp-fluidity-theme", "wp-fluidity"
+  ],
+  "homepage": "",
+  "bugs": "",
+  "author": {
+    "name": "Kris Hedges",
+    "email": "KrisHedges@gmail.com",
+    "url": "http://www.inkspeck.com"
+  },
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "yeoman-generator": "~0.14.0",
+    "colors": "~0.6.2"
+  },
+  "devDependencies": {
+    "mocha": "~1.14.0"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  },
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}

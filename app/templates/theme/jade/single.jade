@@ -1,0 +1,24 @@
+:php
+  /**
+   * <%= themeName %> template for displaying Archives
+   *
+   * @package WordPress
+   * @subpackage <%= themeName %>
+   * @since <%= themeName %> 1.0
+   */
+- get_header();
+  .content
+    - if ( have_posts() ) : the_post();
+      - get_template_part( 'loop', get_post_format() );
+        aside(class="post-aside")
+          .post-links
+            - previous_post_link( '%link', __( '&laquo; Previous post', '<%= themeName %>' ) )
+            - next_post_link( '%link', __( 'Next post &raquo;', '<%= themeName %>' ) );
+          - if ( comments_open() || get_comments_number() > 0 ) :
+            - comments_template( '', true );
+          - endif
+    - else :
+      - get_template_part( 'loop', 'empty' );
+    - endif
+
+  - get_footer()

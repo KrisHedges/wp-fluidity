@@ -1,0 +1,32 @@
+:php
+  /**
+   * <%= themeName %> template for displaying Archives
+   *
+   * @package WordPress
+   * @subpackage <%= themeName %>
+   * @since <%= themeName %> 1.0
+   */
+- get_header();
+  .content
+    - if ( have_posts() ):
+      - while ( have_posts() ) : the_post();
+        - get_template_part( 'loop', get_post_format() );
+        :php
+          wp_link_pages(
+            array(
+              'before'           => '<div class="linked-page-nav"><p>' . sprintf( __( '<em>%s</em> is separated in multiple parts:', '<%= themeName %>' ), get_the_title() ) . '<br />',
+              'after'            => '</p></div>',
+              'next_or_number'   => 'number',
+              'separator'        => ' ',
+              'pagelink'         => __( '&raquo; Part %', '<%= themeName %>' ),
+            )
+          );
+      - endwhile
+    - else :
+      - get_template_part( 'loop', 'empty' );
+    - endif
+    .pagination
+      - get_template_part( 'template-part', 'pagination' );
+
+  - get_footer();
+

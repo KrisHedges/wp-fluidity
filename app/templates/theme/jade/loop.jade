@@ -1,0 +1,41 @@
+:php
+  /**
+   * <%= themeName %> template for displaying Archives
+   *
+   * @package WordPress
+   * @subpackage <%= themeName %>
+   * @since <%= themeName %> 1.0
+   */
+
+article(id!="post-<?php the_ID(); ?>")
+  h1
+    - if ( is_singular() ) :
+      - the_title();
+    - else :
+      a(href!="<?php echo esc_url( get_permalink() ); ?>", rel="bookmark")
+        - the_title();
+    - endif
+  .post-meta
+    - <%= themeName %>_post_meta();
+  .post-content
+    - if ( '' != get_the_post_thumbnail() ) :
+      - the_post_thumbnail();
+    - endif
+    - if ( is_front_page() || is_category() || is_archive() || is_search() ) :
+      - the_excerpt();
+      a(href!="<?php the_permalink(); ?>")
+        - _e( 'Read more &raquo;', '<%= themeName %>' );
+    - else :
+      - the_content( __( 'Continue reading &raquo', '<%= themeName %>' ) );
+    - endif
+
+    :php
+      wp_link_pages(
+        array(
+          'before'           => '<div class="linked-page-nav"><p>'. __( 'This article has more parts: ', '<%= themeName %>' ),
+          'after'            => '</p></div>',
+          'next_or_number'   => 'number',
+          'separator'        => ' ',
+          'pagelink'         => __( '&lt;%&gt;', '<%= themeName %>' ),
+        )
+      );

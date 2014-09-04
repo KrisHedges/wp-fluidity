@@ -1,0 +1,33 @@
+:php
+  /**
+   * <%= themeName %> template for displaying Archives
+   *
+   * @package WordPress
+   * @subpackage <%= themeName %>
+   * @since <%= themeName %> 1.0
+   */
+html
+  head
+    meta(charset!="<?php echo bloginfo( 'charset' ); ?>")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    title
+      - wp_title()
+    - wp_head()
+  body
+    header
+      a.logo(href!="<?php echo home_url(); ?>", title!="<?php bloginfo( 'name' ); ?>")
+      h1.blog-name
+        = bloginfo('name')
+      .blog-description
+        = bloginfo('description')
+      .menu
+        :php
+          $nav_menu = wp_nav_menu(
+            array(
+              'container' => 'nav',
+              'container_class' => 'main-menu',
+              'items_wrap' => '<ul class="%2$s">%3$s</ul>',
+              'theme_location' => 'main-menu',
+              'fallback_cb' => '__return_false'
+              )
+            )

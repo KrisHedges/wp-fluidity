@@ -1,0 +1,75 @@
+:php
+  /**
+   * <%= themeName %> template for displaying Archives
+   *
+   * @package WordPress
+   * @subpackage <%= themeName %>
+   * @since <%= themeName %> 1.0
+   */
+
+
+  /******************************************************\
+    Theme support, standard settings, menus and widgets
+  \*****************************************************/
+
+  add_theme_support( 'post-formats', array( 'image', 'quote', 'status', 'link' ) );
+  add_theme_support( 'post-thumbnails' );
+  add_theme_support( 'automatic-feed-links' );
+
+  register_nav_menu( 'main-menu', __( 'Your sites main menu', '<%= themeName %>' ) );
+
+  if ( function_exists( 'register_sidebars' ) ) {
+    register_sidebar(
+      array(
+        'id' => 'home-sidebar',
+        'name' => __( 'Home widgets', '<%= themeName %>' ),
+        'description' => __( 'Shows on home page', '<%= themeName %>' )
+      )
+    );
+
+    register_sidebar(
+      array(
+        'id' => 'footer-sidebar',
+        'name' => __( 'Footer widgets', '<%= themeName %>' ),
+        'description' => __( 'Shows in the sites footer', '<%= themeName %>' )
+      )
+    );
+  }
+
+  /*******************\
+    Scripts and Styles
+  \*******************/
+  /**
+   * Enqueue <%= themeName %> scripts
+   * @return void
+   */
+  function <%= themeName %>_enqueue_scripts() {
+    wp_enqueue_style( '<%= themeName %>-styles', get_stylesheet_uri(), array(), '1.0' );
+    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'default-scripts', get_template_directory_uri() . '/js/dist.js', array(), '1.0', true );
+    if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
+  }
+  add_action( 'wp_enqueue_scripts', '<%= themeName %>_enqueue_scripts' );
+
+
+  /*******************\
+    Content functions
+  \*******************/
+
+  /**
+   * Displays meta information for a post
+   * @return void
+   */
+
+  function <%= themeName %>_post_meta() {
+    if ( get_post_type() == 'post' ) {
+      echo sprintf(
+        __( 'Posted %s in %s%s by %s. ', '<%= themeName %>' ),
+        get_the_time( get_option( 'date_format' ) ),
+        get_the_category_list( ', ' ),
+        get_the_tag_list( __( ', <b>Tags</b>: ', '<%= themeName %>' ), ', ' ),
+        get_the_author_link()
+      );
+    }
+    edit_post_link( __( ' (edit)', '<%= themeName %>' ), '<span class="edit-link">', '</span>' );
+  }

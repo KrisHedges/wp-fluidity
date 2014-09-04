@@ -1,0 +1,25 @@
+:php
+  /**
+   * <%= themeName %> template for displaying Archives
+   *
+   * @package WordPress
+   * @subpackage <%= themeName %>
+   * @since <%= themeName %> 1.0
+   */
+
+article.empty
+  h1
+    - _e( 'Nothing Found', '<%= themeName %>' );
+  .post-content
+    - if ( is_home() && current_user_can( 'publish_posts' ) ) :
+      p
+        - printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', '<%= themeName %>' ), admin_url( 'post-new.php' ) );
+    - elseif ( is_search() ) :
+      p
+        - _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', '<%= themeName %>' );
+      - get_search_form();
+    - else :
+      p
+        - _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', '<%= themeName %>' );
+      - get_search_form();
+    - endif
