@@ -182,32 +182,32 @@ module.exports = function(grunt) {
     notify: {
       jade: {
         options: {
-          title: 'StreamPress Watcher',
+          title: 'WordPress Fluidity',
           message: 'Jade Compiled'
         }
       },
       stylus: {
         options: {
-          title: 'StreamPress Watcher',
+          title: 'WordPress Fluidity',
           message: 'Stylus Compiled'
         }
       },
       coffee: {
         options: {
-          title: 'StreamPress Watcher',
+          title: 'WordPress Fluidity',
           message: 'CoffeeScript Compiled'
         }
       },
       dev: {
         options: {
-          title: 'StreamPress Watcher',
+          title: 'WordPress Fluidity',
           message: "All source files compiled succesfully you're ready to go!"
         }
       },
       dist: {
         options: {
-          title: 'StreamPress Watcher',
-          message: "All source files compiled, minified, & uglified succesfully!"
+          title: 'WordPress Fluidity',
+          message: "All source files compiled, minified, & uglified in the /dist directory succesfully!"
         }
       }
     },
