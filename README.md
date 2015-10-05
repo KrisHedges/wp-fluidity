@@ -98,21 +98,21 @@ They are as follows...
 
 #### JadePHP
 
-JadePHP allows us to write our php files using the terse and beatiful syntax of jade.
+JadePHP allows us to write our php files using the terse and beautiful syntax of jade.
 For more information on the syntax and usage check the readme at [Jade.PHP](https://github.com/everzet/jade.php)
 
 Our jade files our kept in the `/jade` directory. They are then processed on change and the resulting PHP files are generated in the root of the theme directory.
 
 #### Coffeescript
 
-Coffeescript allows us to write our javascript files using the terse and beatiful syntax of coffeescript.
+Coffeescript allows us to write our javascript files using the terse and beautiful syntax of coffeescript.
 Our coffeescript files are kept in the `/coffee` directory. They are then processed on change and the resulting JS files are generated in the root `/js/tmp` directory.
 These JS files will then be Concatenated into just one JS file in `/js/dist.js`.
 
 During dist this file will also be uglified.
 
 #### Stylus
-Stylus allows us to write our CSS files using the terse and beatiful syntax of Stylus.
+Stylus allows us to write our CSS files using the terse and beautiful syntax of Stylus.
 Our stylus files are kept in the `/stylus` directory. They are then processed on change and the resulting CSS files are generated in the root of the theme directory.
 
 ##### Fluidity
